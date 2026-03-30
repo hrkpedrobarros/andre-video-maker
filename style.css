@@ -426,17 +426,13 @@ img { max-width: 100%; display: block; }
   transform: translateX(4px);
 }
 
-/* ===== SUCCESS MESSAGE ===== */
+/* ===== SUCCESS / ERROR MESSAGES ===== */
 .form-success {
   display: none;
   text-align: center;
   padding: 60px 20px;
   max-width: 480px;
   margin: 0 auto;
-}
-
-.form-success.show {
-  display: block;
   animation: fadeUp 0.5s ease;
 }
 
@@ -463,6 +459,32 @@ img { max-width: 100%; display: block; }
 .form-success p {
   color: var(--text-secondary);
   font-size: 1.05rem;
+}
+
+.form-error {
+  color: #ff6b6b;
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.field-error {
+  color: #ff6b6b;
+  font-size: 0.82rem;
+  min-height: 18px;
+  display: block;
+}
+
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.15);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 @keyframes fadeUp {

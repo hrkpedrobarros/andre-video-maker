@@ -18,12 +18,7 @@ const revealObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.slide-wrapper').forEach(el => revealObserver.observe(el));
 
-// Form submit
-function handleSubmit(e) {
-  e.preventDefault();
-  document.querySelector('.contact-form').style.display = 'none';
-  document.getElementById('formSuccess').classList.add('show');
-}
+// Form is handled by @formspree/ajax SDK
 
 // ===== NAV INDICATOR =====
 const indicator = document.getElementById('navIndicator');

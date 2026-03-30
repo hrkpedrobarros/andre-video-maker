@@ -150,41 +150,47 @@
         <h2>Solicite uma Proposta</h2>
         <p>Preencha os dados abaixo e o André entrará em contato em até 24 horas.</p>
       </div>
-      <form class="contact-form" onsubmit="handleSubmit(event)">
+      <div data-fs-success class="form-success">
+        <div class="success-icon">✓</div>
+        <h3>Solicitação enviada!</h3>
+        <p>O André recebeu sua mensagem e retornará em breve.</p>
+      </div>
+      <div data-fs-error class="form-error"></div>
+      <form class="contact-form" id="contactForm">
         <div class="form-row">
           <div class="form-group">
             <label for="nome">Nome Completo</label>
-            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required data-fs-field>
+            <span data-fs-error="nome" class="field-error"></span>
           </div>
           <div class="form-group">
             <label for="empresa">Nome da Empresa</label>
-            <input type="text" id="empresa" name="empresa" placeholder="Ex: Metalúrgica Silva" required>
+            <input type="text" id="empresa" name="empresa" placeholder="Ex: Metalúrgica Silva" required data-fs-field>
+            <span data-fs-error="empresa" class="field-error"></span>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label for="funcao">Função</label>
-            <input type="text" id="funcao" name="funcao" placeholder="Ex: Diretor Comercial" required>
+            <input type="text" id="funcao" name="funcao" placeholder="Ex: Diretor Comercial" required data-fs-field>
+            <span data-fs-error="funcao" class="field-error"></span>
           </div>
           <div class="form-group">
             <label for="email">E-mail</label>
-            <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+            <input type="email" id="email" name="email" placeholder="seu@email.com" required data-fs-field>
+            <span data-fs-error="email" class="field-error"></span>
           </div>
         </div>
         <div class="form-group">
           <label for="descricao">Descreva o que você precisa</label>
-          <textarea id="descricao" name="descricao" rows="5" placeholder="Conte um pouco sobre seu negócio, seus desafios nas redes sociais e o que espera alcançar..." required></textarea>
+          <textarea id="descricao" name="descricao" rows="5" placeholder="Conte um pouco sobre seu negócio, seus desafios nas redes sociais e o que espera alcançar..." required data-fs-field></textarea>
+          <span data-fs-error="descricao" class="field-error"></span>
         </div>
-        <button type="submit" class="btn btn-submit">
+        <button type="submit" class="btn btn-submit" data-fs-submit-btn>
           <span class="btn-text">Enviar Solicitação</span>
           <span class="btn-arrow">→</span>
         </button>
       </form>
-      <div class="form-success" id="formSuccess">
-        <div class="success-icon">✓</div>
-        <h3>Solicitação enviada!</h3>
-        <p>O André recebeu sua mensagem e retornará em breve.</p>
-      </div>
     </div>
   </section>
 
@@ -212,6 +218,11 @@
     </div>
   </footer>
 
+  <script>
+    window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+    formspree('initForm', { formElement: '#contactForm', formId: 'xykbwvzp' });
+  </script>
+  <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   <script src="script.js"></script>
 </body>
 </html>
